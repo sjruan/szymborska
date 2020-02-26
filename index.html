@@ -1,91 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8">
+    <title>text</title>
+    <meta content="text" property="og:title">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="Webflow" name="generator">
+    <link href="css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="css/webflow.css" rel="stylesheet" type="text/css">
+    <link href="css/xiao-s-first-project-5fae77.webflow.css" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./style.css">
 
-  <!DOCTYPE html>
-  <html lang="en" >
-  <head>
-      <meta charset="utf-8">
-      <title>text</title>
-      <meta content="text" property="og:title">
-      <meta content="width=device-width, initial-scale=1" name="viewport">
-      <meta content="Webflow" name="generator">
-      <link href="css/normalize.css" rel="stylesheet" type="text/css">
-      <link href="css/webflow.css" rel="stylesheet" type="text/css">
-      <link href="css/xiao-s-first-project-5fae77.webflow.css" rel="stylesheet" type="text/css">
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">
-  
-  </head>
-  <body class="index">
-  <!-- partial:index.partial.html -->
-  <a href="old-home-2.html" class="link-block-31 w-inline-block">
-  <div id="city">
-    <svg id="svgText" width="650" height="85" xmlns="http://www.w3.org/2000/svg">
-      <filter id="filter">
-        <feTurbulence type="turbulence" baseFrequency="0.015 0.1" numOctaves="1" seed="1"/>
-        <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="9" xChannelSelector="R"       yChannelSelector="B"/>
-      </filter>
-    <text font-family="Szymborska,sans-serif" font-size="70" id="svg" y="63" x="13.828125" stroke-width="0" filter="url(#filter)" stroke="#fff" fill="#ffffff">the City of Szymborska</text>
-  </svg>
-  </div>
-  <div class="city w-embed">
-      <div id="city">
-        <svg id="svgText" width="150" height="100" xmlns="http://www.w3.org/2000/svg">
+</head>
+<body class="index">
+<!-- partial:index.partial.html -->
+<a href="old-home-2.html" class="link-block-31 w-inline-block">
+<div id="city">
+  <svg id="svgText" width="650" height="85" xmlns="http://www.w3.org/2000/svg">
     <filter id="filter">
-      <feturbulence type="turbulence" basefrequency="0.015 0.1" numoctaves="1" seed="1">
-      <fedisplacementmap in="SourceGraphic" in2="turbulence" scale="9" xchannelselector="R" ychannelselector="B">
-    </fedisplacementmap></feturbulence></filter>
-  <text font-family="Szymborska, sans-serif" font-size="35" id="svg" y="63" x="13.828125" stroke-width="0" filter="url(#filter)" stroke="#fff" fill="#ffffff">1957-2012</text>
+      <feTurbulence type="turbulence" baseFrequency="0.015 0.1" numOctaves="1" seed="1"/>
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="9" xChannelSelector="R"       yChannelSelector="B"/>
+    </filter>
+  <text font-family="Szymborska,sans-serif" font-size="70" id="svg" y="63" x="13.828125" stroke-width="0" filter="url(#filter)" stroke="#fff" fill="#ffffff">the City of Szymborska</text>
 </svg>
-      </div>
+</div>
+<div class="city w-embed">
+    <div id="city">
+      <svg id="svgText" width="150" height="100" xmlns="http://www.w3.org/2000/svg">
+  <filter id="filter">
+    <feturbulence type="turbulence" basefrequency="0.015 0.1" numoctaves="1" seed="1">
+    <fedisplacementmap in="SourceGraphic" in2="turbulence" scale="9" xchannelselector="R" ychannelselector="B">
+  </fedisplacementmap></feturbulence></filter>
+<text font-family="Szymborska, sans-serif" font-size="35" id="svg" y="63" x="13.828125" stroke-width="0" filter="url(#filter)" stroke="#fff" fill="#ffffff">1957-2012</text>
+</svg>
     </div>
-  </a>
+  </div>
+</a>
 </body>
 </html>
 
-  <style>
+<style>
 * {
-  margin: 0;
-  background: black;
+margin: 0;
+background: black;
 }
 </style>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
-  <script src="./script.js"></script>
-  <script>
- document.addEventListener("mousemove", getPosition);
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<script src="./script.js"></script>
+<script>
+document.addEventListener("mousemove", getPosition);
 let mousePosition = {
-  x: 0,
-  y: 0
+x: 0,
+y: 0
 };
 let svg = document.getElementById("svgText");
 let turbulence = svg.querySelectorAll("#filter feTurbulence")[0];
 let displacement = svg.querySelectorAll("#filter feDisplacementMap")[0];
 function getPosition(event) {
-  mousePosition.x = Math.abs(event.clientX - window.innerWidth / 2);
-  //mousePosition.x = event.clientX / 2;
-  mousePosition.y = Math.abs(event.clientY - window.innerHeight / 2);
-  //mousePosition.y = event.clientY / 2;
-  animate();
+mousePosition.x = Math.abs(event.clientX - window.innerWidth / 2);
+//mousePosition.x = event.clientX / 2;
+mousePosition.y = Math.abs(event.clientY - window.innerHeight / 2);
+//mousePosition.y = event.clientY / 2;
+animate();
 }
 function animate() {
-  let valueX = parseFloat(mousePosition.x) * 0.0001;
-  let valueY = parseFloat(mousePosition.y) * 0.001;
-  console.log(valueX.toFixed(3));
-  TweenMax.to(turbulence, 1, {
-    attr: {
-      baseFrequency:
-        Math.abs(valueX.toFixed(3)) + " " + Math.abs(valueX.toFixed(3))
-    },
-    ease: Expo.easeOutIn
-  });
-  TweenMax.to(displacement, 1, {
-    attr: {
-      scale: map_range(mousePosition.y, 0, window.innerWidth, 18, 25)
-    },
-    ease: Expo.easeOutIn
-  });
+let valueX = parseFloat(mousePosition.x) * 0.0001;
+let valueY = parseFloat(mousePosition.y) * 0.001;
+console.log(valueX.toFixed(3));
+TweenMax.to(turbulence, 1, {
+  attr: {
+    baseFrequency:
+      Math.abs(valueX.toFixed(3)) + " " + Math.abs(valueX.toFixed(3))
+  },
+  ease: Expo.easeOutIn
+});
+TweenMax.to(displacement, 1, {
+  attr: {
+    scale: map_range(mousePosition.y, 0, window.innerWidth, 18, 25)
+  },
+  ease: Expo.easeOutIn
+});
 }
 function map_range(value, low1, high1, low2, high2) {
-  return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
 }
- </script>
+</script>
 </html>
